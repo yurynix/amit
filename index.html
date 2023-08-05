@@ -1,0 +1,45 @@
+<style type="text/css">
+    button {
+        color: white;
+    }
+
+    #next {
+        background-color: blue;
+    }
+
+    #back {
+        background-color: red;
+    }
+
+    #image {
+        max-height: 80vh;
+        max-width: 80vw;
+    }
+</style>
+<button id="greet">Greet</button>
+
+
+<button id="next">Next</button>
+<button id="back">Back</button>
+<img id="image" src="view1.avif" width="1024" />
+
+<script>
+    let imageNumber = 1;
+    document.getElementById('greet').addEventListener('click', () => {
+        const name = prompt("What is your name?");
+        alert(`Hello ${name}!`);
+    });
+
+    document.getElementById('next').addEventListener('click', () => {
+        imageNumber = imageNumber + 1;
+        document.getElementById('image').src = `view${imageNumber}.avif`;
+    });
+
+    document.getElementById('back').addEventListener('click', () => {
+        imageNumber = imageNumber - 1;
+        if (imageNumber < 1) {
+            imageNumber = 1;
+        }
+        document.getElementById('image').src = `view${imageNumber}.avif`;
+    });
+</script>
